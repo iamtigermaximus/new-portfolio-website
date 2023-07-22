@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   CardContainer,
   ImageContainer,
@@ -8,8 +8,8 @@ import {
   Tech,
   LinksContainer,
   DemoLink,
-} from './ProjectCard.styles'
-import { FaGlobe, FaLaptopCode } from 'react-icons/fa'
+} from './ProjectCard.styles';
+import { FaGlobe, FaLaptopCode } from 'react-icons/fa';
 
 const ProjectCard = ({ id, image, title, tech, github, demo }) => {
   return (
@@ -24,9 +24,9 @@ const ProjectCard = ({ id, image, title, tech, github, demo }) => {
           <DemoLink>
             <a
               href={github}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='button-link'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-link"
             >
               <FaLaptopCode />
             </a>
@@ -34,9 +34,9 @@ const ProjectCard = ({ id, image, title, tech, github, demo }) => {
           <DemoLink>
             <a
               href={demo}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='button-link'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-link"
             >
               <FaGlobe />
             </a>
@@ -44,7 +44,7 @@ const ProjectCard = ({ id, image, title, tech, github, demo }) => {
         </LinksContainer>
       </CardTextsContainer>
     </CardContainer>
-  )
-}
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;

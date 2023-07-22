@@ -1,7 +1,7 @@
-import React from 'react'
-import { Fade } from 'react-awesome-reveal'
-import { useState, useEffect } from 'react'
-import Particle from '../../components/Particle'
+import React from 'react';
+import { Fade } from 'react-awesome-reveal';
+import { useState, useEffect } from 'react';
+import Particle from '../../components/Particle';
 import {
   Container,
   HeadingContainer,
@@ -9,33 +9,33 @@ import {
   ProjectContainer,
   LoadingContainer,
   Loader,
-} from './Portfolio.styles'
-import ProjectCard from '../../components/project-card/ProjectCard'
-import axios from 'axios'
+} from './Portfolio.styles';
+import ProjectCard from '../../components/project-card/ProjectCard';
+import axios from 'axios';
 
 const Portfolio = () => {
-  const [projects, setProjects] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     axios
       .get('https://portfolio-backend-rosy.vercel.app/')
-      .then((response) => setProjects(response.data.items))
+      .then((response) => setProjects(response.data.items));
     setTimeout(() => {
-      setLoading(false)
-    }, 2000)
-  }, [])
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   return (
     <Container>
       <Particle />
-      <Fade direction='down'>
+      <Fade direction="down">
         <HeadingContainer>
           <Heading>Projects</Heading>
         </HeadingContainer>
       </Fade>
-      <Fade direction='left' delay='10000s'>
+      <Fade direction="left" delay="10000s">
         {loading ? (
           <LoadingContainer>
             <Loader>LOADING...</Loader>
@@ -47,8 +47,8 @@ const Portfolio = () => {
               .reverse()
               .map((project) => (
                 <ProjectCard
-                  key={project.id}
-                  id={project.id}
+                  key={project._id}
+                  id={project._id}
                   image={project.image}
                   title={project.title}
                   tech={project.tech}
@@ -60,7 +60,7 @@ const Portfolio = () => {
         )}
       </Fade>
     </Container>
-  )
-}
+  );
+};
 
-export default Portfolio
+export default Portfolio;

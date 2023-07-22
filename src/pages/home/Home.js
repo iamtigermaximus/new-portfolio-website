@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import Profile from '../../assets/smg.png'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import Profile from '../../assets/kled.jpeg';
+import { Link } from 'react-router-dom';
 import {
   SiTypescript,
   SiNextdotjs,
@@ -14,9 +14,9 @@ import {
   SiNodedotjs,
   SiAmazonaws,
   SiAwsamplify,
-} from 'react-icons/si'
-import Particle from '../../components/Particle'
-import { Fade } from 'react-awesome-reveal'
+} from 'react-icons/si';
+import Particle from '../../components/Particle';
+import { Fade } from 'react-awesome-reveal';
 import {
   Container,
   ContentContainer,
@@ -37,27 +37,27 @@ import {
   Heading,
   SectionButton,
   SectionButtonContainer,
-} from './Home.styles'
-import Typewriter from 'typewriter-effect'
-import axios from 'axios'
-import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
-import { Carousel } from 'react-responsive-carousel'
+} from './Home.styles';
+import Typewriter from 'typewriter-effect';
+import axios from 'axios';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 const Home = () => {
-  const [projects, setProjects] = useState([])
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     axios
       .get('https://portfolio-backend-rosy.vercel.app/')
-      .then((response) => setProjects(response.data.items))
-  }, [])
+      .then((response) => setProjects(response.data.items));
+  }, []);
   return (
     <>
       <Container>
         <Particle />
         <ContentContainer>
           <HeroLeft>
-            <Fade direction='down'>
+            <Fade direction="down">
               <Greet>Hey, there!</Greet>
               <Name>
                 <Typewriter
@@ -65,7 +65,7 @@ const Home = () => {
                     typewriter
                       .typeString("I'm Siegfred.")
                       .pauseFor(1000)
-                      .start()
+                      .start();
                   }}
                   options={{
                     cursor: '',
@@ -113,7 +113,7 @@ const Home = () => {
                 </TechItem>
               </TechContainer>
             </Fade>
-            <Link to='/contact'>
+            <Link to="/contact">
               <Button>Contact me</Button>
             </Link>
           </HeroLeft>
@@ -135,19 +135,19 @@ const Home = () => {
               showStatus={false}
             >
               {projects.map((project, index) => {
-                return <SliderImage src={project.image} alt='' key={index} />
+                return <SliderImage src={project.image} alt="" key={index} />;
               })}
             </Carousel>
           </SliderImageWrapper>
           <SectionButtonContainer>
-            <Link to='/portfolio'>
+            <Link to="/portfolio">
               <SectionButton>View my work page</SectionButton>
             </Link>
           </SectionButtonContainer>
         </SliderSection>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
